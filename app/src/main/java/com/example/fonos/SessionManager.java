@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 import androidx.annotation.Nullable;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 final class SessionManager {
@@ -27,12 +29,16 @@ final class SessionManager {
     }
 
     static boolean isLoggedIn(Context context) {
-        return getUid(context) != null;
+        return FirebaseAuth.getInstance().getCurrentUser() != null;
     }
 
     @Nullable
     static String getUid(Context context) {
-        return preferences(context).getString(KEY_UID, null);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            return user.getUid();
+        }
+        return null;
     }
 
     static void clear(Context context) {

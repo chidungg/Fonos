@@ -1,5 +1,6 @@
 package com.example.fonos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -21,8 +22,19 @@ public class HomePage extends AppCompatActivity {
             return insets;
         });
         NavigationHelper.setupBottomNavigation(this, HomePage.class);
-        findViewById(R.id.btnListenTrial).setOnClickListener(v ->
-                startActivity(DemoAudioBook.createPlayerIntent(this, 0))
-        );
+        bindBookDetails(R.id.bookFeatured);
+        bindBookDetails(R.id.btnListenTrial);
+        bindBookDetails(R.id.bookContinue);
+        bindBookDetails(R.id.bookSuggestion1);
+        bindBookDetails(R.id.bookSuggestion2);
+        bindBookDetails(R.id.bookSuggestion3);
+    }
+
+    private void bindBookDetails(int viewId) {
+        findViewById(viewId).setOnClickListener(v -> openBookDetails());
+    }
+
+    private void openBookDetails() {
+        startActivity(new Intent(this, BookDetails.class));
     }
 }

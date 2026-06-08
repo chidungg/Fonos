@@ -39,6 +39,7 @@ android {
 dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
+    implementation(libs.firebaseAuth)
     implementation(libs.firebase.firestore)
     implementation(libs.media3.exoplayer)
     implementation(libs.media3.session)

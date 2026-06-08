@@ -14,6 +14,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,6 +28,7 @@ import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
+    private FirebaseAuth auth;
     private FirebaseFirestore firestore;
     private EditText edtFullName;
     private EditText edtEmail;
@@ -43,6 +48,7 @@ public class Register extends AppCompatActivity {
             return insets;
         });
 
+        auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
         edtFullName = findViewById(R.id.edtFullName);
         edtEmail = findViewById(R.id.edtEmailRegister);
@@ -53,6 +59,7 @@ public class Register extends AppCompatActivity {
 
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
         btnCreateAccount.setOnClickListener(v -> createAccount());
+        findViewById(R.id.btnGoogleRegister).setOnClickListener(v -> showProviderNotConfigured());
         findViewById(R.id.txtLoginNow).setOnClickListener(v -> {
             Intent intent = new Intent(Register.this, Login.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -78,8 +85,8 @@ public class Register extends AppCompatActivity {
             return;
         }
 
-        if (password.length() < 6) {
-            edtPassword.setError("Mật khẩu cần tối thiểu 6 ký tự");
+        if (password.length() < 8) {
+            edtPassword.setError("Mật khẩu cần tối thiểu 8 ký tự");
             edtPassword.requestFocus();
             return;
         }
@@ -96,35 +103,31 @@ public class Register extends AppCompatActivity {
         }
 
         setLoading(true);
-        firestore.collection("users")
-                .whereEqualTo("email", email)
-                .limit(1)
-                .get()
+        auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (!task.isSuccessful()) {
                         setLoading(false);
-                        Toast.makeText(Register.this, getFirebaseErrorMessage(task.getException()), Toast.LENGTH_LONG).show();
+                        Toast.makeText(Register.this, getAuthErrorMessage(task.getException()), Toast.LENGTH_LONG).show();
                         return;
                     }
 
-                    if (task.getResult() != null && !task.getResult().isEmpty()) {
+                    FirebaseUser user = auth.getCurrentUser();
+                    if (user == null) {
                         setLoading(false);
-                        edtEmail.setError("Email đã được sử dụng");
-                        edtEmail.requestFocus();
+                        Toast.makeText(Register.this, "Không tạo được phiên đăng nhập", Toast.LENGTH_LONG).show();
                         return;
                     }
 
-                    saveUserProfile(fullName, email, password);
+                    saveUserProfile(user, fullName, email);
                 });
     }
 
-    private void saveUserProfile(String fullName, String email, String password) {
-        DocumentReference userRef = firestore.collection("users").document();
+    private void saveUserProfile(FirebaseUser user, String fullName, String email) {
+        DocumentReference userRef = firestore.collection("users").document(user.getUid());
         Map<String, Object> profile = new HashMap<>();
-        profile.put("uid", userRef.getId());
+        profile.put("uid", user.getUid());
         profile.put("fullName", fullName);
         profile.put("email", email);
-        profile.put("password", password);
         profile.put("role", "user");
         profile.put("isActive", true);
         profile.put("subscriptionStatus", "inactive");
@@ -138,9 +141,10 @@ public class Register extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (!task.isSuccessful()) {
                         setLoading(false);
+                        rollbackAuthUser(user);
                         Toast.makeText(
                                 Register.this,
-                                getFirebaseErrorMessage(task.getException()),
+                                getFirestoreErrorMessage(task.getException()),
                                 Toast.LENGTH_LONG
                         ).show();
                         return;
@@ -154,9 +158,20 @@ public class Register extends AppCompatActivity {
                             })
                             .addOnFailureListener(error -> {
                                 setLoading(false);
-                                Toast.makeText(Register.this, getFirebaseErrorMessage(error), Toast.LENGTH_LONG).show();
+                                Toast.makeText(Register.this, getFirestoreErrorMessage(error), Toast.LENGTH_LONG).show();
                             });
                 });
+    }
+
+    private void rollbackAuthUser(FirebaseUser user) {
+        user.delete().addOnCompleteListener(task -> {
+            auth.signOut();
+            SessionManager.clear(Register.this);
+        });
+    }
+
+    private void showProviderNotConfigured() {
+        Toast.makeText(this, "Đăng ký bằng nhà cung cấp này chưa được cấu hình", Toast.LENGTH_SHORT).show();
     }
 
     private void setLoading(boolean loading) {
@@ -165,12 +180,25 @@ public class Register extends AppCompatActivity {
     }
 
     private void openHomePage() {
-        Intent intent = new Intent(Register.this, HomePage.class);
+        Intent intent = new Intent(this, HomePage.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
-    private String getFirebaseErrorMessage(Exception exception) {
+    private String getAuthErrorMessage(Exception exception) {
+        if (exception instanceof FirebaseAuthUserCollisionException) {
+            return "Email đã được sử dụng";
+        }
+        if (exception instanceof FirebaseAuthWeakPasswordException) {
+            return "Mật khẩu quá yếu";
+        }
+        if (exception == null || exception.getMessage() == null) {
+            return "Không tạo được tài khoản";
+        }
+        return "Không tạo được tài khoản: " + exception.getMessage();
+    }
+
+    private String getFirestoreErrorMessage(Exception exception) {
         if (exception == null || exception.getMessage() == null) {
             return "Không kết nối được Firestore";
         }

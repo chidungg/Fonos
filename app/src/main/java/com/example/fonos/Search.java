@@ -1,5 +1,6 @@
 package com.example.fonos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -21,5 +22,15 @@ public class Search extends AppCompatActivity {
             return insets;
         });
         NavigationHelper.setupBottomNavigation(this, Search.class);
+        bindBookDetails(R.id.searchBookItem1);
+        bindBookDetails(R.id.searchBookItem2);
+        bindBookDetails(R.id.searchBookItem3);
+        bindBookDetails(R.id.searchBookItem4);
+    }
+
+    private void bindBookDetails(int viewId) {
+        findViewById(viewId).setOnClickListener(v ->
+                startActivity(new Intent(this, BookDetails.class))
+        );
     }
 }

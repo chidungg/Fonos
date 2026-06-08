@@ -1,27 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1016"
+    android:background="#F8FAFC"
     android:orientation="vertical"
     android:paddingStart="24dp"
     android:paddingEnd="24dp"
     android:paddingTop="18dp"
     tools:context=".AudioPlayer">
 
-    <!-- top label -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Audio Player"
-        android:textColor="#6F7685"
-        android:textSize="9sp" />
+    <!-- top bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_back_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="#111827"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="Audio Player"
+            android:textColor="#2563EB"
+            android:textSize="9sp" />
+
+    </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="47dp" />
+        android:layout_height="25dp" />
 
     <!-- book cover -->
     <TextView
@@ -41,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Tên sách"
-        android:textColor="#FFFFFF"
+        android:textColor="#111827"
         android:textSize="22sp"
         android:textStyle="bold" />
 
@@ -53,7 +76,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
         android:text="Chương 1"
-        android:textColor="#9BA1AD"
+        android:textColor="#64748B"
         android:textSize="13sp"
         android:textStyle="bold" />
 
@@ -68,8 +91,8 @@
         android:layout_height="wrap_content"
         android:max="1000"
         android:progress="0"
-        android:progressTint="#FF7A00"
-        android:thumbTint="#FF7A00" />
+        android:progressTint="#2563EB"
+        android:thumbTint="#2563EB" />
 
     <Space
         android:layout_width="match_parent"
@@ -87,7 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="00:00"
-            android:textColor="#9BA1AD"
+            android:textColor="#64748B"
             android:textSize="11sp" />
 
         <TextView
@@ -97,7 +120,7 @@
             android:layout_weight="1"
             android:gravity="end"
             android:text="00:00"
-            android:textColor="#9BA1AD"
+            android:textColor="#64748B"
             android:textSize="11sp" />
 
     </LinearLayout>
@@ -120,7 +143,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="10s"
-            android:textColor="#FFFFFF"
+            android:textColor="#111827"
             android:textSize="16sp"
             android:textStyle="bold"
             android:clickable="true"
@@ -155,7 +178,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="10s"
-            android:textColor="#FFFFFF"
+            android:textColor="#111827"
             android:textSize="16sp"
             android:textStyle="bold"
             android:clickable="true"
@@ -178,7 +201,7 @@
             android:focusable="true"
             android:gravity="center"
             android:text="Previous"
-            android:textColor="#FFFFFF"
+            android:textColor="#111827"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -190,7 +213,7 @@
             android:focusable="true"
             android:gravity="center"
             android:text="Stop"
-            android:textColor="#FF7A00"
+            android:textColor="#2563EB"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -202,7 +225,7 @@
             android:focusable="true"
             android:gravity="center"
             android:text="Next"
-            android:textColor="#FFFFFF"
+            android:textColor="#111827"
             android:textSize="12sp"
             android:textStyle="bold" />
 

@@ -7,7 +7,7 @@ appcompat = "1.7.1"
 material = "1.13.0"
 activityKtx = "1.13.0"
 constraintlayout = "2.2.1"
-firebaseBom = "34.7.0"
+firebaseBom = "34.14.0"
 googleServices = "4.4.4"
 media3 = "1.10.1"
 
@@ -20,8 +20,9 @@ material = { group = "com.google.android.material", name = "material", version.r
 activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityKtx" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
-firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebaseAuth = { module = "com.google.firebase:firebase-auth" }
+firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
 media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "media3" }
 media3-session = { module = "androidx.media3:media3-session", version.ref = "media3" }
 

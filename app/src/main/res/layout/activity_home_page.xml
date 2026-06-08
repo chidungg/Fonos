@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1016"
+    android:background="#F8FAFC"
     tools:context=".HomePage">
 
     <ScrollView
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="#6F7685"
+                android:textColor="#2563EB"
                 android:textSize="8sp" />
 
             <Space
@@ -51,7 +51,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:text="My app"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -76,8 +76,8 @@
                 android:inputType="text"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#8D94A3"
+                android:textColor="#111827"
+                android:textColorHint="#64748B"
                 android:textSize="9sp" />
 
             <Space
@@ -86,9 +86,12 @@
 
             <!-- Featured book card -->
             <LinearLayout
+                android:id="@+id/bookFeatured"
                 android:layout_width="match_parent"
                 android:layout_height="95dp"
                 android:background="@drawable/bg_featured_card"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingStart="15dp"
@@ -105,7 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sách nổi bật"
-                        android:textColor="#FFE0C2"
+                        android:textColor="#DBEAFE"
                         android:textSize="9sp"
                         android:textStyle="bold" />
 
@@ -123,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
                         android:text="Short Detail"
-                        android:textColor="#FFE0C2"
+                        android:textColor="#DBEAFE"
                         android:textSize="10sp" />
 
                     <TextView
@@ -134,7 +137,7 @@
                         android:background="@drawable/bg_white_button"
                         android:gravity="center"
                         android:text="Nghe thử"
-                        android:textColor="#FF7A00"
+                        android:textColor="#2563EB"
                         android:textSize="9sp"
                         android:textStyle="bold"
                         android:clickable="true"
@@ -158,7 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nghe tiếp"
-                android:textColor="#FFFFFF"
+                android:textColor="#111827"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -168,8 +171,11 @@
 
             <!-- Continue listening card -->
             <LinearLayout
+                android:id="@+id/bookContinue"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:orientation="horizontal">
 
                 <TextView
@@ -189,7 +195,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -198,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:text="Chương 4 • còn 21 phút"
-                        android:textColor="#A0A7B6"
+                        android:textColor="#64748B"
                         android:textSize="10sp" />
 
                     <LinearLayout
@@ -228,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Danh mục"
-                android:textColor="#FFFFFF"
+                android:textColor="#111827"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -255,7 +261,7 @@
                         android:paddingStart="11dp"
                         android:paddingEnd="11dp"
                         android:text="Kinh doanh"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="9sp"
                         android:textStyle="bold" />
 
@@ -268,7 +274,7 @@
                         android:paddingStart="11dp"
                         android:paddingEnd="11dp"
                         android:text="Tâm lý"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="9sp"
                         android:textStyle="bold" />
 
@@ -281,7 +287,7 @@
                         android:paddingStart="11dp"
                         android:paddingEnd="11dp"
                         android:text="Lịch sử"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="9sp"
                         android:textStyle="bold" />
 
@@ -294,7 +300,7 @@
                         android:paddingStart="11dp"
                         android:paddingEnd="11dp"
                         android:text="Văn học"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="9sp"
                         android:textStyle="bold" />
 
@@ -311,7 +317,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gợi ý cho bạn"
-                android:textColor="#FFFFFF"
+                android:textColor="#111827"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -326,21 +332,30 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/bookSuggestion1"
                     android:layout_width="55dp"
                     android:layout_height="88dp"
-                    android:background="@drawable/bg_book_cover_brown" />
+                    android:background="@drawable/bg_book_cover_brown"
+                    android:clickable="true"
+                    android:focusable="true" />
 
                 <TextView
+                    android:id="@+id/bookSuggestion2"
                     android:layout_width="55dp"
                     android:layout_height="88dp"
                     android:layout_marginStart="12dp"
-                    android:background="@drawable/bg_book_cover_dark" />
+                    android:background="@drawable/bg_book_cover_dark"
+                    android:clickable="true"
+                    android:focusable="true" />
 
                 <TextView
+                    android:id="@+id/bookSuggestion3"
                     android:layout_width="55dp"
                     android:layout_height="88dp"
                     android:layout_marginStart="12dp"
-                    android:background="@drawable/bg_book_cover_dark" />
+                    android:background="@drawable/bg_book_cover_dark"
+                    android:clickable="true"
+                    android:focusable="true" />
 
             </LinearLayout>
 
@@ -375,14 +390,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⌂"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="7sp"
                 android:textStyle="bold" />
 
@@ -401,14 +416,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⌕"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -426,14 +441,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="▤"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Library"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -451,14 +466,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="↓"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Category"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -482,7 +497,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Profile"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>

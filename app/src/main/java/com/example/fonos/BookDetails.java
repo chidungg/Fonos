@@ -21,6 +21,7 @@ public class BookDetails extends AppCompatActivity {
             return insets;
         });
 
+        findViewById(R.id.btnBack).setOnClickListener(v -> finish());
         findViewById(R.id.btnPlaySample).setOnClickListener(v -> openPlayer(0));
         findViewById(R.id.chapter1).setOnClickListener(v -> openPlayer(0));
         findViewById(R.id.chapter2).setOnClickListener(v -> openPlayer(1));

@@ -9,6 +9,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Profile extends AppCompatActivity {
 
     @Override
@@ -23,6 +25,7 @@ public class Profile extends AppCompatActivity {
         });
         NavigationHelper.setupBottomNavigation(this, Profile.class);
         findViewById(R.id.itemLogout).setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
             SessionManager.clear(Profile.this);
             Intent intent = new Intent(Profile.this, Login.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

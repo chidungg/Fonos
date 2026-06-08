@@ -71,6 +71,7 @@ public class AudioPlayer extends AppCompatActivity implements Player.Listener {
         btnPause = findViewById(R.id.btnPause);
         seekBar = findViewById(R.id.seekBar);
 
+        findViewById(R.id.btnBack).setOnClickListener(v -> finish());
         btnPause.setOnClickListener(v -> togglePlayPause());
         findViewById(R.id.btnRewind).setOnClickListener(v -> seekBy(-SEEK_INCREMENT_MS));
         findViewById(R.id.btnForward).setOnClickListener(v -> seekBy(SEEK_INCREMENT_MS));

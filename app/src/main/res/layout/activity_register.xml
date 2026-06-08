@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1016"
+    android:background="#F8FAFC"
     tools:context=".Register">
 
     <!-- Brown decoration circle -->
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Register / Sign Up"
-                android:textColor="#6F7685"
+                android:textColor="#2563EB"
                 android:textSize="9sp" />
 
             <Space
@@ -52,29 +52,13 @@
                 android:layout_height="16dp" />
 
             <!-- Back button -->
-            <TextView
-                android:id="@+id/btnBack"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:background="@drawable/bg_back_button"
-                android:gravity="center"
-                android:text="‹"
-                android:textColor="#FFFFFF"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
 
             <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tạo tài khoản"
-                android:textColor="#FFFFFF"
+                android:textColor="#111827"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -84,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Đăng ký để lưu thư viện và tiến độ nghe"
-                android:textColor="#9BA1AD"
+                android:textColor="#64748B"
                 android:textSize="12sp" />
 
             <Space
@@ -92,40 +76,25 @@
                 android:layout_height="32dp" />
 
             <!-- Google Register -->
+
             <TextView
                 android:id="@+id/btnGoogleRegister"
                 android:layout_width="match_parent"
                 android:layout_height="41dp"
                 android:background="@drawable/bg_button_outline"
-                android:gravity="center"
-                android:text="G        Đăng ký với Google"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="bold"
                 android:clickable="true"
-                android:focusable="true" />
+                android:focusable="true"
+                android:gravity="center"
+                android:text="Đăng ký với Google"
+                android:textColor="#111827"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="11dp" />
 
             <!-- Apple Register -->
-            <TextView
-                android:id="@+id/btnAppleRegister"
-                android:layout_width="match_parent"
-                android:layout_height="41dp"
-                android:background="@drawable/bg_button_outline"
-                android:gravity="center"
-                android:text="●        Đăng ký với Apple"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="28dp" />
 
             <!-- Divider -->
             <LinearLayout
@@ -138,7 +107,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1"
-                    android:background="#252B38" />
+                    android:background="#E2E8F0" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -146,14 +115,14 @@
                     android:layout_marginStart="18dp"
                     android:layout_marginEnd="18dp"
                     android:text="hoặc"
-                    android:textColor="#9BA1AD"
+                    android:textColor="#64748B"
                     android:textSize="11sp" />
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1"
-                    android:background="#252B38" />
+                    android:background="#E2E8F0" />
 
             </LinearLayout>
 
@@ -166,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Họ và tên"
-                android:textColor="#B5BBC8"
+                android:textColor="#475569"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -180,8 +149,8 @@
                 android:inputType="textPersonName"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#7E8492"
+                android:textColor="#111827"
+                android:textColorHint="#94A3B8"
                 android:textSize="12sp" />
 
             <!-- Email label -->
@@ -190,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-2dp"
                 android:text="Email"
-                android:textColor="#B5BBC8"
+                android:textColor="#475569"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -204,8 +173,8 @@
                 android:inputType="textEmailAddress"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#7E8492"
+                android:textColor="#111827"
+                android:textColorHint="#94A3B8"
                 android:textSize="12sp" />
 
             <!-- Password label -->
@@ -214,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-2dp"
                 android:text="Mật khẩu"
-                android:textColor="#B5BBC8"
+                android:textColor="#475569"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -235,8 +204,8 @@
                     android:hint="Tối thiểu 8 ký tự"
                     android:inputType="textPassword"
                     android:padding="0dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#7E8492"
+                    android:textColor="#111827"
+                    android:textColorHint="#94A3B8"
                     android:textSize="12sp" />
 
                 <TextView
@@ -246,7 +215,7 @@
                     android:layout_alignParentEnd="true"
                     android:gravity="center"
                     android:text="Ẩn"
-                    android:textColor="#FF7A00"
+                    android:textColor="#2563EB"
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
@@ -258,7 +227,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-2dp"
                 android:text="Nhập lại mật khẩu"
-                android:textColor="#B5BBC8"
+                android:textColor="#475569"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -272,8 +241,8 @@
                 android:inputType="textPassword"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#7E8492"
+                android:textColor="#111827"
+                android:textColorHint="#94A3B8"
                 android:textSize="12sp" />
 
             <Space
@@ -291,14 +260,14 @@
                     android:id="@+id/cbTerms"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:buttonTint="#6F7685" />
+                    android:buttonTint="#2563EB" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:text="Tôi đồng ý với Điều khoản &amp; Chính sách"
-                    android:textColor="#9BA1AD"
+                    android:textColor="#64748B"
                     android:textSize="10sp" />
 
             </LinearLayout>
@@ -336,7 +305,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Đã có tài khoản? "
-                    android:textColor="#9BA1AD"
+                    android:textColor="#64748B"
                     android:textSize="11sp" />
 
                 <TextView
@@ -344,7 +313,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Đăng nhập"
-                    android:textColor="#FF7A00"
+                    android:textColor="#2563EB"
                     android:textSize="11sp"
                     android:textStyle="bold"
                     android:clickable="true"
@@ -356,18 +325,6 @@
 
     </ScrollView>
 
-    <!-- AUDIO label -->
-    <TextView
-        android:layout_width="60dp"
-        android:layout_height="33dp"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/bg_audio_label"
-        android:gravity="center"
-        android:text="AUDIO"
-        android:textColor="#FFFFFF"
-        android:textSize="10sp"
-        android:textStyle="bold" />
+
 
 </FrameLayout>

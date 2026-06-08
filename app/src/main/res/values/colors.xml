@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="fonos_background">#F8FAFC</color>
+    <color name="fonos_surface">#FFFFFF</color>
+    <color name="fonos_text">#111827</color>
+    <color name="fonos_muted">#64748B</color>
+    <color name="fonos_primary">#2563EB</color>
 </resources>

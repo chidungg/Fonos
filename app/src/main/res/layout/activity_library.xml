@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1016"
+    android:background="#F8FAFC"
     tools:context=".Library">
 
     <ScrollView
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Library"
-                android:textColor="#6F7685"
+                android:textColor="#2563EB"
                 android:textSize="8sp" />
 
             <Space
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thư viện của tôi"
-                android:textColor="#FFFFFF"
+                android:textColor="#111827"
                 android:textSize="23sp"
                 android:textStyle="bold" />
 
@@ -73,7 +73,7 @@
                     android:background="@drawable/bg_filter_inactive"
                     android:gravity="center"
                     android:text="Đã tải"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="10sp"
                     android:textStyle="bold"
                     android:clickable="true"
@@ -87,7 +87,7 @@
                     android:background="@drawable/bg_filter_inactive"
                     android:gravity="center"
                     android:text="Yêu thích"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="10sp"
                     android:textStyle="bold"
                     android:clickable="true"
@@ -125,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -169,7 +169,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -221,7 +221,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -265,7 +265,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -318,14 +318,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⌂"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -343,14 +343,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⌕"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -368,14 +368,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="▤"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Library"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="7sp"
                 android:textStyle="bold" />
 
@@ -394,14 +394,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="↓"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Category"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -425,7 +425,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Profile"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1016"
+    android:background="#F8FAFC"
     tools:context=".Profile">
 
     <!-- Main content -->
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile"
-                android:textColor="#6F7685"
+                android:textColor="#2563EB"
                 android:textSize="9sp" />
 
             <Space
@@ -51,7 +51,7 @@
                     android:background="@drawable/bg_avatar_orange"
                     android:gravity="center"
                     android:text="CV"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Người dùng"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="12 sách • 38 giờ nghe"
-                        android:textColor="#9BA1AD"
+                        android:textColor="#64748B"
                         android:textSize="12sp" />
 
                     <TextView
@@ -90,7 +90,7 @@
                         android:background="@drawable/bg_edit_button"
                         android:gravity="center"
                         android:text="Sửa hồ sơ"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="10sp"
                         android:textStyle="bold"
                         android:clickable="true"
@@ -128,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Tài khoản"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="13sp"
                     android:textStyle="bold" />
 
@@ -136,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
-                    android:textColor="#BFC5D2"
+                    android:textColor="#64748B"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Thông báo"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="13sp"
                     android:textStyle="bold" />
 
@@ -177,7 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
-                    android:textColor="#BFC5D2"
+                    android:textColor="#64748B"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -210,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Lịch sử nghe"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="13sp"
                     android:textStyle="bold" />
 
@@ -218,7 +218,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
-                    android:textColor="#BFC5D2"
+                    android:textColor="#64748B"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -251,7 +251,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Thanh toán"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="13sp"
                     android:textStyle="bold" />
 
@@ -259,7 +259,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
-                    android:textColor="#BFC5D2"
+                    android:textColor="#64748B"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -285,7 +285,7 @@
                     android:layout_width="28dp"
                     android:layout_height="wrap_content"
                     android:text="?"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -294,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Trợ giúp"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="13sp"
                     android:textStyle="bold" />
 
@@ -302,7 +302,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
-                    android:textColor="#BFC5D2"
+                    android:textColor="#64748B"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -329,7 +329,7 @@
                     android:layout_width="28dp"
                     android:layout_height="wrap_content"
                     android:text="↪"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="18sp" />
 
                 <TextView
@@ -337,7 +337,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Đăng xuất"
-                    android:textColor="#FF5A5A"
+                    android:textColor="#DC2626"
                     android:textSize="13sp"
                     android:textStyle="bold" />
 
@@ -345,7 +345,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
-                    android:textColor="#BFC5D2"
+                    android:textColor="#64748B"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -382,14 +382,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⌂"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="8sp" />
 
         </LinearLayout>
@@ -407,14 +407,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⌕"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="8sp" />
 
         </LinearLayout>
@@ -432,14 +432,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="▤"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Library"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="8sp" />
 
         </LinearLayout>
@@ -457,14 +457,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="↓"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="19sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Down"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="8sp" />
 
         </LinearLayout>
@@ -488,7 +488,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:text="Profile"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="8sp"
                 android:textStyle="bold" />
 

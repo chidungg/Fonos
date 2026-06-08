@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1016"
+    android:background="#F8FAFC"
     tools:context=".Search">
 
     <ScrollView
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Search / Explore"
-                android:textColor="#6F7685"
+                android:textColor="#2563EB"
                 android:textSize="7sp" />
 
             <Space
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Khám phá"
-                android:textColor="#FFFFFF"
+                android:textColor="#111827"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
@@ -56,8 +56,8 @@
                 android:inputType="text"
                 android:paddingStart="14dp"
                 android:paddingEnd="14dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#8D94A3"
+                android:textColor="#111827"
+                android:textColorHint="#64748B"
                 android:textSize="9sp" />
 
             <Space
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Từ khóa phổ biến"
-                android:textColor="#FFFFFF"
+                android:textColor="#111827"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -91,7 +91,7 @@
                     android:paddingStart="11dp"
                     android:paddingEnd="11dp"
                     android:text="Tài chính"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -104,7 +104,7 @@
                     android:paddingStart="11dp"
                     android:paddingEnd="11dp"
                     android:text="Tâm lý học"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -117,7 +117,7 @@
                     android:paddingStart="11dp"
                     android:paddingEnd="11dp"
                     android:text="Marketing"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -141,7 +141,7 @@
                     android:paddingStart="11dp"
                     android:paddingEnd="11dp"
                     android:text="Tiểu thuyết"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#111827"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -153,8 +153,8 @@
                     android:gravity="center"
                     android:paddingStart="11dp"
                     android:paddingEnd="11dp"
-                    android:text="Kỹ luật"
-                    android:textColor="#FFFFFF"
+                    android:text="Kỷ luật"
+                    android:textColor="#111827"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -169,7 +169,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kết quả gợi ý"
-                android:textColor="#FFFFFF"
+                android:textColor="#111827"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -179,8 +179,11 @@
 
             <!-- Book item 1 -->
             <LinearLayout
+                android:id="@+id/searchBookItem1"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -201,7 +204,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="10sp"
                         android:textStyle="bold" />
 
@@ -210,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:text="Tác giả"
-                        android:textColor="#8D94A3"
+                        android:textColor="#64748B"
                         android:textSize="8sp" />
 
                 </LinearLayout>
@@ -219,7 +222,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★ 4.8"
-                    android:textColor="#FF9A1F"
+                    android:textColor="#2563EB"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -231,8 +234,11 @@
 
             <!-- Book item 2 -->
             <LinearLayout
+                android:id="@+id/searchBookItem2"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -253,7 +259,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="10sp"
                         android:textStyle="bold" />
 
@@ -263,7 +269,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★ 4.8"
-                    android:textColor="#FF9A1F"
+                    android:textColor="#2563EB"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -275,8 +281,11 @@
 
             <!-- Book item 3 -->
             <LinearLayout
+                android:id="@+id/searchBookItem3"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -297,7 +306,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="10sp"
                         android:textStyle="bold" />
 
@@ -307,7 +316,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★ 4.8"
-                    android:textColor="#FF9A1F"
+                    android:textColor="#2563EB"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -319,8 +328,11 @@
 
             <!-- Book item 4 -->
             <LinearLayout
+                android:id="@+id/searchBookItem4"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -341,7 +353,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tên sách"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#111827"
                         android:textSize="10sp"
                         android:textStyle="bold" />
 
@@ -351,7 +363,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★ 4.8"
-                    android:textColor="#FF9A1F"
+                    android:textColor="#2563EB"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -388,14 +400,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⌂"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -413,14 +425,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⌕"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="7sp"
                 android:textStyle="bold" />
 
@@ -439,14 +451,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="▤"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Library"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -464,14 +476,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="↓"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Category"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>
@@ -495,7 +507,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Profile"
-                android:textColor="#8B93A3"
+                android:textColor="#64748B"
                 android:textSize="7sp" />
 
         </LinearLayout>

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1016"
+    android:background="#F8FAFC"
     android:fillViewport="true"
     tools:context=".Login">
 
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chào mừng trở lại"
-            android:textColor="#FFFFFF"
+            android:textColor="#111827"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="Đăng nhập để tiếp tục nghe sách"
-            android:textColor="#9BA1AD"
+            android:textColor="#64748B"
             android:textSize="12sp" />
 
         <Space
@@ -57,8 +57,8 @@
             android:inputType="textEmailAddress"
             android:paddingStart="18dp"
             android:paddingEnd="18dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#A7ADBA"
+            android:textColor="#111827"
+            android:textColorHint="#94A3B8"
             android:textSize="13sp" />
 
         <Space
@@ -82,8 +82,8 @@
                 android:hint="Mật khẩu"
                 android:inputType="textPassword"
                 android:padding="0dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#A7ADBA"
+                android:textColor="#111827"
+                android:textColorHint="#94A3B8"
                 android:textSize="13sp" />
 
             <TextView
@@ -93,7 +93,7 @@
                 android:layout_alignParentEnd="true"
                 android:gravity="center"
                 android:text="Ẩn"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -107,7 +107,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="12dp"
             android:text="Quên mật khẩu?"
-            android:textColor="#FF7A00"
+            android:textColor="#2563EB"
             android:textSize="11sp"
             android:textStyle="bold" />
 
@@ -144,7 +144,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-                android:background="#252B38" />
+                android:background="#E2E8F0" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -152,14 +152,14 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
                 android:text="hoặc"
-                android:textColor="#9BA1AD"
+                android:textColor="#64748B"
                 android:textSize="11sp" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
-                android:background="#252B38" />
+                android:background="#E2E8F0" />
 
         </LinearLayout>
 
@@ -177,7 +177,7 @@
             app:backgroundTint="@null"
             android:text="Tiếp tục với Google"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
+            android:textColor="#111827"
             android:textSize="13sp"
             android:textStyle="bold" />
 
@@ -186,18 +186,6 @@
             android:layout_height="10dp" />
 
         <!-- Apple button -->
-        <Button
-            android:id="@+id/btnApple"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@drawable/bg_button_outline"
-            android:backgroundTint="@null"
-            app:backgroundTint="@null"
-            android:text="Tiếp tục với Apple"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="13sp"
-            android:textStyle="bold" />
 
         <Space
             android:layout_width="match_parent"
@@ -214,7 +202,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chưa có tài khoản?"
-                android:textColor="#9BA1AD"
+                android:textColor="#64748B"
                 android:textSize="11sp" />
 
             <TextView
@@ -222,7 +210,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đăng ký"
-                android:textColor="#FF7A00"
+                android:textColor="#2563EB"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
