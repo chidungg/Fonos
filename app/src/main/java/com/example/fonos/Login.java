@@ -13,15 +13,24 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.fonos.database.LocalDatabaseHelper;
 
 import java.util.Locale;
 
 public class Login extends AppCompatActivity {
-
+    private static final String TAG = "SQLiteTest";
     private FirebaseFirestore firestore;
     private EditText edtEmail;
     private EditText edtPassword;
@@ -30,6 +39,8 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -42,6 +53,7 @@ public class Login extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        testLocalDatabase();
 
         btnLogin.setOnClickListener(v -> loginWithEmail());
         findViewById(R.id.txtRegister).setOnClickListener(v -> {
@@ -50,7 +62,41 @@ public class Login extends AppCompatActivity {
         });
         findViewById(R.id.txtForgotPassword).setOnClickListener(v -> sendPasswordResetEmail());
     }
+    private void testLocalDatabase() {
+        new Thread(() -> {
+            LocalDatabaseHelper dbHelper = null;
+            SQLiteDatabase db = null;
+            Cursor cursor = null;
 
+            try {
+                dbHelper = new LocalDatabaseHelper(getApplicationContext());
+                db = dbHelper.getReadableDatabase();
+
+                cursor = db.rawQuery(
+                        "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name",
+                        null
+                );
+
+                Log.d(TAG, "SQLite opened successfully");
+
+                while (cursor.moveToNext()) {
+                    String tableName = cursor.getString(0);
+                    Log.d(TAG, "Table: " + tableName);
+                }
+
+            } catch (Exception e) {
+                Log.e(TAG, "SQLite test failed: " + e.getMessage(), e);
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
+
+                if (db != null && db.isOpen()) {
+                    db.close();
+                }
+            }
+        }).start();
+    }
     @Override
     protected void onStart() {
         super.onStart();
