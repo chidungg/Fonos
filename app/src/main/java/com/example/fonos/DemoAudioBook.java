@@ -15,23 +15,47 @@ final class DemoAudioBook {
     }
 
     static Intent createPlayerIntent(Context context, int startChapterIndex) {
-        ArrayList<String> chapterIds = new ArrayList<>(Arrays.asList("chapter-1", "chapter-2", "chapter-3"));
-        ArrayList<String> chapterTitles = new ArrayList<>(Arrays.asList("Chapter 1", "Chapter 2", "Chapter 3"));
-        ArrayList<String> audioUrls = new ArrayList<>(Arrays.asList(
-                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-        ));
-
         return PlaybackQueue.createPlayerIntent(
                 context,
                 BOOK_ID,
                 BOOK_TITLE,
                 AUTHOR,
-                chapterIds,
-                chapterTitles,
-                audioUrls,
+                getChapterIds(),
+                getChapterTitles(),
+                getAudioUrls(),
                 startChapterIndex
         );
+    }
+
+    static String getBookId() {
+        return BOOK_ID;
+    }
+
+    static String getBookTitle() {
+        return BOOK_TITLE;
+    }
+
+    static String getAuthor() {
+        return AUTHOR;
+    }
+
+    static int getChapterCount() {
+        return getAudioUrls().size();
+    }
+
+    static ArrayList<String> getChapterIds() {
+        return new ArrayList<>(Arrays.asList("chapter-1", "chapter-2", "chapter-3"));
+    }
+
+    static ArrayList<String> getChapterTitles() {
+        return new ArrayList<>(Arrays.asList("Chapter 1", "Chapter 2", "Chapter 3"));
+    }
+
+    static ArrayList<String> getAudioUrls() {
+        return new ArrayList<>(Arrays.asList(
+                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+                "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        ));
     }
 }

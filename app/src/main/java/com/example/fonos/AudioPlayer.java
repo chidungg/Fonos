@@ -2,9 +2,13 @@ package com.example.fonos;
 
 import android.Manifest;
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Looper;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -20,18 +24,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.MediaMetadata;
-import androidx.media3.common.PlaybackException;
-import androidx.media3.common.Player;
-import androidx.media3.session.MediaController;
-import androidx.media3.session.SessionToken;
-
-import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutionException;
 
-public class AudioPlayer extends AppCompatActivity implements Player.Listener {
+public class AudioPlayer extends AppCompatActivity implements PlaybackService.PlaybackListener {
     private static final long SEEK_INCREMENT_MS = 10_000L;
     private static final int NOTIFICATION_PERMISSION_REQUEST = 1001;
 
@@ -43,9 +40,26 @@ public class AudioPlayer extends AppCompatActivity implements Player.Listener {
             progressHandler.postDelayed(this, 500L);
         }
     };
+    private final ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            PlaybackService.LocalBinder binder = (PlaybackService.LocalBinder) service;
+            playbackService = binder.getService();
+            serviceBound = true;
+            playbackService.addPlaybackListener(AudioPlayer.this);
+            loadRequestedQueue();
+            updatePlayerUi();
+        }
 
-    private ListenableFuture<MediaController> controllerFuture;
-    private MediaController controller;
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            serviceBound = false;
+            playbackService = null;
+        }
+    };
+
+    private PlaybackService playbackService;
+    private boolean serviceBound;
     private SeekBar seekBar;
     private TextView txtBookTitle;
     private TextView txtChapterTitle;
@@ -92,8 +106,8 @@ public class AudioPlayer extends AppCompatActivity implements Player.Listener {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                if (controller != null) {
-                    controller.seekTo(seekBar.getProgress());
+                if (playbackService != null) {
+                    playbackService.seekTo(seekBar.getProgress());
                 }
             }
         });
@@ -104,135 +118,86 @@ public class AudioPlayer extends AppCompatActivity implements Player.Listener {
     @Override
     protected void onStart() {
         super.onStart();
-        SessionToken sessionToken = new SessionToken(
-                this,
-                new ComponentName(this, PlaybackService.class)
-        );
-        controllerFuture = new MediaController.Builder(this, sessionToken).buildAsync();
-        controllerFuture.addListener(
-                this::onControllerConnected,
-                ContextCompat.getMainExecutor(this)
-        );
+        Intent serviceIntent = new Intent(this, PlaybackService.class);
+        serviceIntent.setAction(PlaybackService.ACTION_START);
+        ContextCompat.startForegroundService(this, serviceIntent);
+        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
         progressHandler.post(progressUpdater);
     }
 
     @Override
     protected void onStop() {
         progressHandler.removeCallbacks(progressUpdater);
-        if (controller != null) {
-            controller.removeListener(this);
-            controller = null;
-        }
-        if (controllerFuture != null) {
-            MediaController.releaseFuture(controllerFuture);
-            controllerFuture = null;
+        if (serviceBound) {
+            playbackService.removePlaybackListener(this);
+            unbindService(serviceConnection);
+            playbackService = null;
+            serviceBound = false;
         }
         super.onStop();
     }
 
-    private void onControllerConnected() {
-        if (controllerFuture == null) {
-            return;
-        }
-
-        try {
-            controller = controllerFuture.get();
-            controller.addListener(this);
-            loadRequestedQueue();
-            updatePlayerUi();
-        } catch (ExecutionException error) {
-            Toast.makeText(this, "Cannot connect to audio service", Toast.LENGTH_LONG).show();
-        } catch (InterruptedException error) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
     private void loadRequestedQueue() {
-        if (controller == null || !PlaybackQueue.hasQueue(getIntent())) {
-            return;
-        }
-
-        String requestedMediaId = PlaybackQueue.getRequestedMediaId(getIntent());
-        MediaItem currentMediaItem = controller.getCurrentMediaItem();
-        if (currentMediaItem != null && currentMediaItem.mediaId.equals(requestedMediaId)) {
+        if (playbackService == null || !PlaybackQueue.hasQueue(getIntent())) {
             return;
         }
 
         List<MediaItem> mediaItems = PlaybackQueue.toMediaItems(getIntent());
-        controller.setMediaItems(mediaItems, PlaybackQueue.getStartIndex(getIntent()), 0L);
-        controller.prepare();
-        controller.play();
+        playbackService.setQueue(mediaItems, PlaybackQueue.getStartIndex(getIntent()));
     }
 
     private void togglePlayPause() {
-        if (controller == null) {
-            return;
-        }
-
-        if (controller.isPlaying()) {
-            controller.pause();
-        } else {
-            if (controller.getPlaybackState() == Player.STATE_IDLE) {
-                controller.prepare();
-            }
-            controller.play();
+        if (playbackService != null) {
+            playbackService.togglePlayPause();
         }
     }
 
     private void seekBy(long deltaMs) {
-        if (controller == null) {
-            return;
+        if (playbackService != null) {
+            playbackService.seekBy(deltaMs);
         }
-
-        long targetPosition = Math.max(0L, controller.getCurrentPosition() + deltaMs);
-        long duration = controller.getDuration();
-        if (duration > 0L) {
-            targetPosition = Math.min(duration, targetPosition);
-        }
-        controller.seekTo(targetPosition);
     }
 
     private void seekToPreviousChapter() {
-        if (controller != null && controller.hasPreviousMediaItem()) {
-            controller.seekToPreviousMediaItem();
+        if (playbackService != null) {
+            playbackService.seekToPreviousChapter();
         }
     }
 
     private void seekToNextChapter() {
-        if (controller != null && controller.hasNextMediaItem()) {
-            controller.seekToNextMediaItem();
+        if (playbackService != null) {
+            playbackService.seekToNextChapter();
         }
     }
 
     private void stopPlayback() {
-        if (controller != null) {
-            controller.stop();
-            controller.clearMediaItems();
+        if (playbackService != null) {
+            playbackService.stopPlayback();
         }
         finish();
     }
 
     private void updatePlayerUi() {
-        if (controller == null) {
+        if (playbackService == null) {
             return;
         }
 
-        MediaMetadata metadata = controller.getMediaMetadata();
+        MediaMetadata metadata = playbackService.getMediaMetadata();
         txtBookTitle.setText(textOrFallback(metadata.albumTitle, "Audiobook"));
         txtChapterTitle.setText(textOrFallback(metadata.title, "Chapter"));
-        btnPause.setText(controller.isPlaying() ? "Pause" : "Play");
-        findViewById(R.id.btnPreviousChapter).setEnabled(controller.hasPreviousMediaItem());
-        findViewById(R.id.btnNextChapter).setEnabled(controller.hasNextMediaItem());
+        btnPause.setText(playbackService.isPlaying() ? "Pause" : "Play");
+        findViewById(R.id.btnPreviousChapter).setEnabled(playbackService.hasPreviousChapter());
+        findViewById(R.id.btnNextChapter).setEnabled(playbackService.hasNextChapter());
         updateProgress();
     }
 
     private void updateProgress() {
-        if (controller == null) {
+        if (playbackService == null) {
             return;
         }
 
-        long position = Math.max(0L, controller.getCurrentPosition());
-        long duration = Math.max(0L, controller.getDuration());
+        long position = Math.max(0L, playbackService.getCurrentPosition());
+        long duration = Math.max(0L, playbackService.getDuration());
         seekBar.setMax((int) Math.min(Integer.MAX_VALUE, Math.max(1L, duration)));
         seekBar.setProgress((int) Math.min(Integer.MAX_VALUE, Math.min(position, duration)));
         txtElapsed.setText(formatTime(position));
@@ -267,12 +232,12 @@ public class AudioPlayer extends AppCompatActivity implements Player.Listener {
     }
 
     @Override
-    public void onEvents(Player player, Player.Events events) {
+    public void onPlaybackChanged() {
         updatePlayerUi();
     }
 
     @Override
-    public void onPlayerError(PlaybackException error) {
-        Toast.makeText(this, "Cannot play this audio file", Toast.LENGTH_LONG).show();
+    public void onPlaybackError(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 }

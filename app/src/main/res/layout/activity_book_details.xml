@@ -78,8 +78,9 @@
 
                 <TextView
                     android:id="@+id/btnPlaySample"
-                    android:layout_width="116dp"
+                    android:layout_width="0dp"
                     android:layout_height="45dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_button_play_orange"
                     android:gravity="center"
                     android:text="▶ Nghe thử"
@@ -90,16 +91,35 @@
                     android:focusable="true" />
 
                 <Space
-                    android:layout_width="16dp"
+                    android:layout_width="10dp"
                     android:layout_height="match_parent" />
 
                 <TextView
                     android:id="@+id/btnAddLibrary"
-                    android:layout_width="116dp"
+                    android:layout_width="0dp"
                     android:layout_height="45dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_button_library_dark"
                     android:gravity="center"
                     android:text="+ Thư viện"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/btnDownload"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_outline"
+                    android:gravity="center"
+                    android:text="Download"
                     android:textColor="#FFFFFF"
                     android:textSize="13sp"
                     android:textStyle="bold"
